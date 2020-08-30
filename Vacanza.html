@@ -12,15 +12,46 @@
             box-sizing: border-box;
         }
 
+        body {
+            margin: 0px 0px 0px 0px;
+            padding: 0px 0px 0px 0px;
+        }
+
         header {
             width: 100%;
             height: 600px;
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(background.png);
-            background-position: fixed;
             background-repeat: no-repeat;
             background-size: cover;
         }
 
+
+        #links {
+            display: flex;
+            list-style: none;
+            width: 20%;
+            height: 60px;
+            justify-content: space-around;
+            align-items: center;
+            margin-left: 1000px;
+        }
+
+        .opt {
+            position: fixed;
+            color: white;
+            text-decoration: none;
+            font-size: 19px;
+            padding: 4px;
+            border: 3px solid rgb(27, 112, 104);
+            color:rgb(27, 112, 104); 
+            border-radius: 28%;
+            background-color: white;
+            z-index: 2;
+        }
+        .opt:hover{
+            background-color: rgba(27, 112, 103, 0.11); 
+            color: rgb(9, 44, 41); ;
+        }
         #csi {
             position: fixed;
             text-decoration: none;
@@ -33,12 +64,6 @@
         #csi:hover {
             color: rgb(27, 112, 104);
         }
-
-        .menu {
-            position: static;
-            float: right;
-        }
-
         .class {
             padding: 0px 0px 0px 0px;
             margin: 0px 0px 0px 0px;
@@ -46,7 +71,7 @@
 
         #logo {
             padding: 63px 0px 0px 21px;
-            margin: 0px 0px 0px 523px;
+            margin: -26px 0px 0px 523px;
             opacity: 0.9;
         }
 
@@ -62,58 +87,35 @@
         }
 
         .inline {
-
             margin: 23px 0px 0px 500px;
             padding-top: 9px;
         }
-
-        #start {
-
-            text-decoration: none;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: white;
-            padding: 15px;
-            border-radius: 34%;
-            margin: 0px 0px 0px 51px;
-            border: 2px solid white;
-        }
-
-        #register {
+        .mid {
 
             text-decoration: none;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             color: white;
             padding: 15px;
             border: 2px solid white;
-            margin: 0px 0px 0px 33px;
+            margin: 0px 0px 0px 42px;
             border-radius: 34%;
         }
-
-        #start:hover {
+        .mid:hover {
             background-color: rgba(255, 255, 255, 0.2);
             color: rgb(27, 112, 104);
             border: 2px solid rgb(27, 112, 104);
         }
-
-        #register:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: rgb(27, 112, 104);
-            border: 2px solid rgb(27, 112, 104);
-        }
-
         .image {
             width: 400px;
             height: 300px;
-
+            clip-path: polygon(46% 0%, 312% 0%, 0% 159%, 0% 100%);
+            z-index: 1;
         }
-
         .paras {
             background-color: rgb(236, 228, 228);
             padding: 35px;
-
-        }
-
-        #para1 img {
+            }
+         #para1 img {
             float: right;
             position: relative;
             bottom: 30px;
@@ -125,13 +127,18 @@
             position: relative;
             bottom: 30px;
             right: 20px;
+            clip-path: polygon(0% 164%, 0% -122%, 100% 100%, 270% 0%);
         }
 
-        #para3 img {
+        #para3 img{
             float: right;
             position: relative;
             bottom: 30px;
             left: 20px;
+        }
+
+        .para:hover{
+            box-shadow: 5px 5px 5px 5px;
         }
 
         .para {
@@ -144,8 +151,7 @@
             color: gray;
             box-shadow: 8px 7px 6px 5px #a9a9ac;
         }
-
-        .rule {
+        .rule{
             text-decoration: none;
             padding: 15px;
             position: relative;
@@ -154,20 +160,91 @@
             border: 2px solid rgb(27, 112, 104);
             border-radius: 5px;
         }
-
-        footer a {
-            width: 15%;
-            height: 100vh;
-        }
-
-        footer {
-            background-image: url(footer.png);
+        footer{
             height: 200px;
         }
+        .wrap {
+            overflow: hidden;
+            height: 210px;
+            text-align: center;
+            background:  url("footer.png");
+        }
+        .zoomin {
+            height: 210px;
+            text-align: center;
+            background:  url("footer.png");
+            background-size: auto;
+            background-attachment: fixed;
+            background-repeat: repeat;
+            position: relative;
+            animation: zoomin 10s ease-in infinite;
+            transition: all .5s ease-in-out;
+            overflow: hidden;
+        }
 
+        .zoomout {
+            height: 210px;
+            text-align: center;
+            background: none;
+            animation: zoomout 10s ease-in infinite;
+            transition: all .5s ease-in-out;
+            overflow: hidden;
+        }
+
+        @-webkit-keyframes zoomin {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.5);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+        @keyframes zoomin {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.5);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+        @-webkit-keyframes zoomout {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(0.67);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        } @keyframes zoomout {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(0.67);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
         .icon {
             position: relative;
-            top: 100px;
+            top: -82px;
             left: 571px;
         }
 
@@ -182,7 +259,7 @@
         #lp {
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             font-size: 12px;
-            padding: 20px 0px;
+            padding: 24px 0px;
             background-color: rgb(27, 112, 104);
             padding-left: 618px;
             color: white;
@@ -193,16 +270,16 @@
 <body>
     <header>
 
-
-        <a id="csi" href="https://csiakgec.in/index" target="_blank">
-            <p>CSI</p>
-        </a>
-        <div class="menu">
-            <a href="#">Home</a>
-            <a href="#">gallery</a>
-            <a href="#">about</a>
-            <a href="#">contact</a>
-        </div>
+        <nav>
+            <a id="csi" href="https://csiakgec.in/index" target="_blank">
+                <p>CSI</p>
+            </a>
+            <ul class="side" id="links">
+                <li><a class="opt" href="#">Home</a></li>
+                <li><a class="opt" href="#">Quizzes</a></li>
+                <li><a class="opt" href="#">Rounds</a></li>
+                </ul>
+        </nav>
 
         <div>
 
@@ -216,8 +293,8 @@
                         <img src="vac.svg" alt="vacanza">
                     </div>
                     <div class="inline">
-                        <a id="register" href="#">REGISTER</a>
-                        <a id="start" href="#">START QUIZ</a>
+                        <a class="mid" href="#">REGISTER</a>
+                        <a class="mid" href="#">START QUIZ</a>
                     </div>
 
                 </div>
@@ -257,6 +334,13 @@
         </div>
     </div>
     <footer>
+        <div class="wrap">
+            <div class="zoomin">
+                <div class="zoomout">
+                </div>
+            </div>
+
+        </div>
         <a href="https://www.instagram.com/csi_akgec/" target="_blank" class="icon">
             <img id="ig" src="insta.png" alt="Instagram">
         </a>
@@ -267,6 +351,7 @@
             <img id="fb" src="fb.png" alt="Facebook">
             <hr width="14%">
         </a>
+
     </footer>
     <p id="lp">@CSI AKGEC 2018</p>
 </body>
